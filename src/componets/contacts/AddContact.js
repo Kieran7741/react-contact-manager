@@ -7,7 +7,8 @@ export default class AddContact extends Component {
     state = {
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        errors: {}
     };
     // An onChange listener is needed to update the state when the
     // user inputs values into the form due to the form being a controlled component
@@ -21,6 +22,18 @@ export default class AddContact extends Component {
     onSubmit = (dispatch, event) => {
         event.preventDefault();
         const { name, email, phone } = this.state;
+        if (name === '') {
+            this.setState({ errors: { name: 'Name is required' } });
+            return;
+        }
+        if (email === '') {
+            this.setState({ errors: { email: 'Phone is required' } });
+            return;
+        }
+        if (phone === '') {
+            this.setState({ errors: { phone: 'Phone is required' } });
+            return;
+        }
         const newContact = {
             id: uuid(),
             name: name,
@@ -31,11 +44,12 @@ export default class AddContact extends Component {
         this.setState({
             name: '',
             email: '',
-            phone: ''
+            phone: '',
+            errors: {}
         });
     };
     render() {
-        const { name, email, phone } = this.state;
+        const { name, email, phone, errors } = this.state;
 
         return (
             <Consumer>
@@ -57,6 +71,7 @@ export default class AddContact extends Component {
                                         placeholder="Enter Name"
                                         value={name}
                                         onChange={this.onformChange}
+                                        error={errors.name}
                                     />
                                     <TextInputGroup
                                         name="email"
@@ -65,6 +80,7 @@ export default class AddContact extends Component {
                                         placeholder="Enter Email"
                                         value={email}
                                         onChange={this.onformChange}
+                                        error={errors.email}
                                     />
                                     <TextInputGroup
                                         name="phone"
@@ -72,6 +88,7 @@ export default class AddContact extends Component {
                                         placeholder="Enter number"
                                         value={phone}
                                         onChange={this.onformChange}
+                                        error={errors.phone}
                                     />
                                     <input
                                         type="submit"
