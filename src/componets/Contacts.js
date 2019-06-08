@@ -20,7 +20,7 @@ export default class Contacts extends Component {
                 },
                 {
                     name: 'Katie',
-                    id: 1,
+                    id: 3,
                     email: 'Katie@gmail.com',
                     phone: '0877957709'
                 }
@@ -33,12 +33,7 @@ export default class Contacts extends Component {
         return (
             <div>
                 {contacts.map(contact => (
-                    <Contact
-                        key={contact.id}
-                        name={contact.name}
-                        email={contact.email}
-                        phone={contact.phone}
-                    />
+                    <Contact key={contact.id} contact={contact} />
                 ))}
             </div>
         );
