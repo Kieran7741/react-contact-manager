@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Consumer } from '../context';
+import { Consumer } from '../../context';
 
 class Contact extends Component {
     // Note you do not need to bind 'this' when using an arrow function

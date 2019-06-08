@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Contacts from './componets/Contacts';
-import Header from './componets/Header';
+import Contacts from './componets/contacts/Contacts';
+import Header from './componets/layout/Header';
 import { Provider } from './context';
 function App() {
     return (

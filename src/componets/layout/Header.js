@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import '../styles/header.css';
 
 const Header = props => {
     const { branding } = props;
