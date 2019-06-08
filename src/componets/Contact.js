@@ -4,11 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 class Contact extends Component {
     // Note you do not need to bind 'this' when using an arrow function
+    state = {
+        showContactInfo: false
+    };
     onShowClick = event => {
+        this.setState({ showContactInfo: !this.state.showContactInfo });
         console.log(event.target);
     };
     render() {
         const { name, email, phone } = this.props.contact;
+        const { showContactInfo } = this.state;
         return (
             <div className="card card-body mb-3">
                 <h4>
@@ -18,10 +23,12 @@ class Contact extends Component {
                         className="fas fa-caret-down"
                     />
                 </h4>
-                <ul className="list-group">
-                    <li className="list-group-item">Eamil: {email}</li>
-                    <li className="list-group-item">Phone: {phone}</li>
-                </ul>
+                {showContactInfo ? (
+                    <ul className="list-group">
+                        <li className="list-group-item">Eamil: {email}</li>
+                        <li className="list-group-item">Phone: {phone}</li>
+                    </ul>
+                ) : null}
             </div>
         );
     }
