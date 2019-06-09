@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Consumer } from '../../context';
+import axios from 'axios';
 
 class Contact extends Component {
     // Note you do not need to bind 'this' when using an arrow function
@@ -13,7 +14,9 @@ class Contact extends Component {
         this.setState({ showContactInfo: !this.state.showContactInfo });
     };
     onDeleteClick = (id, dispatch) => {
-        dispatch({ type: 'DELETE_CONTACT', payload: id });
+        axios
+            .delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+            .then(res => dispatch({ type: 'DELETE_CONTACT', payload: id }));
     };
     render() {
         const { name, email, phone, id } = this.props.contact;
