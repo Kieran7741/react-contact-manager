@@ -6,6 +6,7 @@ import About from './componets/pages/About';
 import { Provider } from './context';
 import AddContact from './componets/contacts/AddContact';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Test from './componets/test/Test';
 import NotFound from './componets/pages/NotFound';
 function App() {
     return (
@@ -24,6 +25,7 @@ function App() {
                                 path="/contact/add"
                                 component={AddContact}
                             />
+                            <Route exact path="/test" component={Test} />
                             <Route component={NotFound} />
                         </Switch>
                     </div>
