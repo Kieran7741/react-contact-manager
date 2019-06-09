@@ -5,6 +5,7 @@ import Header from './componets/layout/Header';
 import About from './componets/pages/About';
 import { Provider } from './context';
 import AddContact from './componets/contacts/AddContact';
+import EditContact from './componets/contacts/EditContact';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Test from './componets/test/Test';
 import NotFound from './componets/pages/NotFound';
@@ -24,6 +25,11 @@ function App() {
                                 exact
                                 path="/contact/add"
                                 component={AddContact}
+                            />
+                            <Route
+                                exact
+                                path="/contact/edit/:id"
+                                component={EditContact}
                             />
                             <Route exact path="/test" component={Test} />
                             <Route component={NotFound} />

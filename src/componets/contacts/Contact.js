@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 import { Consumer } from '../../context';
 import axios from 'axios';
@@ -54,6 +55,17 @@ class Contact extends Component {
                                         color: 'red'
                                     }}
                                 />
+                                <Link to={`contact/edit/${id}`}>
+                                    <i
+                                        className="fas fa-pencil-alt"
+                                        style={{
+                                            cursor: 'pointer',
+                                            float: 'right',
+                                            color: 'green',
+                                            marginRight: '1rem'
+                                        }}
+                                    />
+                                </Link>
                             </h4>
                             {showContactInfo ? (
                                 <ul className="list-group">
