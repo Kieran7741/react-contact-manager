@@ -6,7 +6,7 @@ import About from './componets/pages/About';
 import { Provider } from './context';
 import AddContact from './componets/contacts/AddContact';
 import EditContact from './componets/contacts/EditContact';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import Test from './componets/test/Test';
 import NotFound from './componets/pages/NotFound';
 function App() {
